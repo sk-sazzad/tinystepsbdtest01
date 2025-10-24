@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>চেকআউট - TinyStepsBD</title>
+    <meta name="description" content="TinyStepsBD - আপনার অর্ডার সম্পূর্ণ করুন">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="চেকআউট, অর্ডার, শিশুদের জুতা">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" class="nav__logo-link">
+                    <img src="assets/images/logo.png" alt="TinyStepsBD Logo" class="nav__logo-img">
+                    <span class="nav__logo-text">TinyStepsBD</span>
+                </a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">হোম</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="shop.html" class="nav__link">শপ</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="about.html" class="nav__link">আমাদের সম্পর্কে</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="nav__link">যোগাযোগ</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__actions">
+                <div class="nav__search">
+                    <i class="fas fa-search nav__search-icon"></i>
+                </div>
+                <div class="nav__cart">
+                    <a href="cart.html" class="nav__cart-link">
+                        <i class="fas fa-shopping-cart nav__cart-icon"></i>
+                        <span class="nav__cart-count">0</span>
+                    </a>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Checkout Header Section -->
+    <section class="checkout-header">
+        <div class="container">
+            <div class="checkout-header__content">
+                <h1 class="checkout-header__title">চেকআউট</h1>
+                
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="index.html" class="breadcrumb__link">হোম</a>
+                    <span class="breadcrumb__separator">/</span>
+                    <a href="cart.html" class="breadcrumb__link">কার্ট</a>
+                    <span class="breadcrumb__separator">/</span>
+                    <span class="breadcrumb__current">চেকআউট</span>
+                </nav>
+
+                <!-- Checkout Steps -->
+                <div class="checkout-steps">
+                    <div class="step active">
+                        <div class="step-number">১</div>
+                        <div class="step-text">গ্রাহক তথ্য</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">২</div>
+                        <div class="step-text">অর্ডার রিভিউ</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">৩</div>
+                        <div class="step-text">কনফার্মেশন</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Main Section -->
+    <section class="checkout-main">
+        <div class="container">
+            <div class="checkout-main__content">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <form id="checkout-form">
+                        <!-- Customer Information -->
+                        <div class="form-section">
+                            <h3 class="form-section__title">
+                                <i class="fas fa-user"></i>
+                                গ্রাহক তথ্য
+                            </h3>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="customer-name" class="form-label">
+                                        পুরো নাম *
+                                    </label>
+                                    <input type="text" id="customer-name" name="customer_name" 
+                                           class="form-input" required 
+                                           placeholder="আপনার পুরো নাম লিখুন">
+                                    <div class="form-error" id="name-error"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="customer-phone" class="form-label">
+                                        মোবাইল নম্বর *
+                                    </label>
+                                    <input type="tel" id="customer-phone" name="customer_phone" 
+                                           class="form-input" required 
+                                           placeholder="01XXXXXXXXX">
+                                    <div class="form-error" id="phone-error"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="customer-email" class="form-label">
+                                        ইমেইল ঠিকানা
+                                    </label>
+                                    <input type="email" id="customer-email" name="customer_email" 
+                                           class="form-input" 
+                                           placeholder="your@email.com">
+                                    <div class="form-error" id="email-error"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Information -->
+                        <div class="form-section">
+                            <h3 class="form-section__title">
+                                <i class="fas fa-truck"></i>
+                                ডেলিভারি তথ্য
+                            </h3>
+
+                            <div class="form-group">
+                                <label for="delivery-address" class="form-label">
+                                    সম্পূর্ণ ঠিকানা *
+                                </label>
+                                <textarea id="delivery-address" name="delivery_address" 
+                                          class="form-textarea" required rows="3"
+                                          placeholder="বাড়ি নং, রোড নং, এলাকা, শহর, জেলা"></textarea>
+                                <div class="form-error" id="address-error"></div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="delivery-area" class="form-label">
+                                        এলাকা *
+                                    </label>
+                                    <select id="delivery-area" name="delivery_area" class="form-select" required>
+                                        <option value="">এলাকা নির্বাচন করুন</option>
+                                        <option value="inside-dhaka">ঢাকা শহরের ভিতরে</option>
+                                        <option value="outside-dhaka">ঢাকার বাইরে</option>
+                                    </select>
+                                    <div class="form-error" id="area-error"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="delivery-city" class="form-label">
+                                        শহর/জেলা *
+                                    </label>
+                                    <input type="text" id="delivery-city" name="delivery_city" 
+                                           class="form-input" required 
+                                           placeholder="ঢাকা, চট্টগ্রাম, ইত্যাদি">
+                                    <div class="form-error" id="city-error"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="delivery-notes" class="form-label">
+                                    বিশেষ নির্দেশনা (ঐচ্ছিক)
+                                </label>
+                                <textarea id="delivery-notes" name="delivery_notes" 
+                                          class="form-textarea" rows="2"
+                                          placeholder="ডেলিভারি সম্পর্কিত কোনো বিশেষ নির্দেশনা..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="form-section">
+                            <h3 class="form-section__title">
+                                <i class="fas fa-credit-card"></i>
+                                পেমেন্ট মাধ্যম
+                            </h3>
+
+                            <div class="payment-methods">
+                                <div class="payment-method active">
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment_method" 
+                                               value="cash_on_delivery" checked>
+                                        <span class="payment-radio"></span>
+                                        <div class="payment-content">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-money-bill-wave"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <h4>ক্যাশ অন ডেলিভারি</h4>
+                                                <p>পণ্য হাতে পেয়ে তারপর পেমেন্ট করুন</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="payment-method">
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment_method" 
+                                               value="bkash">
+                                        <span class="payment-radio"></span>
+                                        <div class="payment-content">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-mobile-alt"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <h4>bKash</h4>
+                                                <p>bKash এডভান্স পেমেন্ট</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="payment-method">
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment_method" 
+                                               value="nagad">
+                                        <span class="payment-radio"></span>
+                                        <div class="payment-content">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-wallet"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <h4>Nagad</h4>
+                                                <p>Nagad এডভান্স পেমেন্ট</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- bKash/Nagad Payment Details (Hidden by default) -->
+                            <div class="digital-payment-details" id="digital-payment-details" style="display: none;">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="payment-number" class="form-label">
+                                            মোবাইল নম্বর *
+                                        </label>
+                                        <input type="tel" id="payment-number" name="payment_number" 
+                                               class="form-input" 
+                                               placeholder="01XXXXXXXXX">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="transaction-id" class="form-label">
+                                            ট্রানজেকশন আইডি *
+                                        </label>
+                                        <input type="text" id="transaction-id" name="transaction_id" 
+                                               class="form-input" 
+                                               placeholder="TRX123456789">
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <h5>পেমেন্ট নির্দেশনা:</h5>
+                                    <ol>
+                                        <li>bKash/Nagad এ পেমেন্ট করুন: <strong>01XXX-XXXXXX</strong></li>
+                                        <li>ট্রানজেকশন আইডি সংরক্ষণ করুন</li>
+                                        <li>উপরের তথ্যগুলো সঠিকভাবে পূরণ করুন</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="form-section">
+                            <div class="terms-agreement">
+                                <label class="terms-checkbox">
+                                    <input type="checkbox" id="agree-terms" name="agree_terms" required>
+                                    <span class="checkmark"></span>
+                                    <span class="terms-text">
+                                        আমি 
+                                        <a href="#" target="_blank">Terms of Service</a> 
+                                        এবং 
+                                        <a href="#" target="_blank">Privacy Policy</a> 
+                                        সাথে সম্মত
+                                    </span>
+                                </label>
+                                <div class="form-error" id="terms-error"></div>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-actions">
+                            <a href="cart.html" class="btn btn--outline">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>কার্টে ফিরে যান</span>
+                            </a>
+                            <button type="submit" class="btn btn--primary btn--large" id="place-order-btn">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span>অর্ডার কনফার্ম করুন</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <aside class="order-summary">
+                    <div class="summary-card">
+                        <h3 class="summary-title">আপনার অর্ডার</h3>
+                        
+                        <!-- Order Items -->
+                        <div class="order-items" id="order-items">
+                            <!-- Order items will be loaded dynamically -->
+                            <div class="loading-spinner">
+                                <div class="spinner"></div>
+                                <p>অর্ডার আইটেম লোড হচ্ছে...</p>
+                            </div>
+                        </div>
+
+                        <!-- Order Totals -->
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span class="total-label">সাবটোটাল:</span>
+                                <span class="total-value" id="order-subtotal">৳ ০</span>
+                            </div>
+                            <div class="total-row">
+                                <span class="total-label">ডেলিভারি চার্জ:</span>
+                                <span class="total-value" id="order-delivery">৳ ০</span>
+                            </div>
+                            <div class="total-row grand-total">
+                                <span class="total-label">মোট:</span>
+                                <span class="total-value" id="order-total">৳ ০</span>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Estimate -->
+                        <div class="delivery-estimate">
+                            <div class="estimate-item">
+                                <i class="fas fa-shipping-fast"></i>
+                                <div class="estimate-details">
+                                    <strong>আনুমানিক ডেলিভারি:</strong>
+                                    <span id="delivery-estimate">২-৪ কার্যদিবস</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Features -->
+                        <div class="security-features">
+                            <div class="security-item">
+                                <i class="fas fa-lock"></i>
+                                <span>সুরক্ষিত চেকআউট</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>ডেটা প্রাইভেসি</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="fas fa-user-shield"></i>
+                                <span>১০০% সুরক্ষিত</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Support Info -->
+                    <div class="support-info">
+                        <div class="support-header">
+                            <i class="fas fa-headset"></i>
+                            <h4>সাহায্য প্রয়োজন?</h4>
+                        </div>
+                        <div class="support-content">
+                            <p>আমাদের কাস্টমার সার্ভিস টিম আপনার যেকোনো প্রশ্নের উত্তর দিতে প্রস্তুত।</p>
+                            <div class="support-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+880 1XXX-XXXXXX</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>support@tinystepsbd.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <div class="loading-spinner-large">
+                <div class="spinner"></div>
+            </div>
+            <h3>আপনার অর্ডার প্রসেস হচ্ছে</h3>
+            <p>অনুগ্রহ করে অপেক্ষা করুন...</p>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal modal--error" id="error-modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <div class="error-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3 class="modal__title" id="error-title">ত্রুটি!</h3>
+            </div>
+            <div class="modal__body">
+                <p id="error-message">অজানা ত্রুটি ঘটেছে। অনুগ্রহ করে আবার চেষ্টা করুন।</p>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--primary" id="error-close">ঠিক আছে</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <div class="footer__logo">
+                        <img src="assets/images/logo.png" alt="TinyStepsBD" class="footer__logo-img">
+                        <h3 class="footer__logo-text">TinyStepsBD</h3>
+                    </div>
+                    <p class="footer__description">
+                        ৭ বছরের অভিজ্ঞতায় বাংলাদেশের শীর্ষস্থানীয় শিশুদের জুতা সরবরাহকারী।
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">দ্রুত লিঙ্ক</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">হোম</a></li>
+                        <li><a href="shop.html">শপ</a></li>
+                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                        <li><a href="contact.html">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">গ্রাহক সেবা</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">অর্ডার ট্র্যাক করুন</a></li>
+                        <li><a href="#">রিটার্ন পলিসি</a></li>
+                        <li><a href="#">ডেলিভারি তথ্য</a></li>
+                        <li><a href="#">সাহায্য কেন্দ্র</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">যোগাযোগ</h4>
+                    <div class="footer__contact">
+                        <div class="footer__contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+880 1XXX-XXXXXX</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@tinystepsbd.com</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>ঢাকা, বাংলাদেশ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <div class="footer__copyright">
+                    <p>&copy; 2024 TinyStepsBD. সকল স্বত্ব সংরক্ষিত।</p>
+                </div>
+                <div class="footer__payment">
+                    <span>পেমেন্ট মাধ্যম:</span>
+                    <span class="payment-method">ক্যাশ অন ডেলিভারি</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অর্ডার ট্র্যাকিং - TinyStepsBD</title>
+    <meta name="description" content="TinyStepsBD - আপনার অর্ডার স্ট্যাটাস ট্র্যাক করুন">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="অর্ডার ট্র্যাকিং, অর্ডার স্ট্যাটাস, শিশুদের জুতা">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" class="nav__logo-link">
+                    <img src="assets/images/logo.png" alt="TinyStepsBD Logo" class="nav__logo-img">
+                    <span class="nav__logo-text">TinyStepsBD</span>
+                </a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">হোম</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="shop.html" class="nav__link">শপ</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="about.html" class="nav__link">আমাদের সম্পর্কে</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="nav__link">যোগাযোগ</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__actions">
+                <div class="nav__search">
+                    <i class="fas fa-search nav__search-icon"></i>
+                </div>
+                <div class="nav__cart">
+                    <a href="cart.html" class="nav__cart-link">
+                        <i class="fas fa-shopping-cart nav__cart-icon"></i>
+                        <span class="nav__cart-count">0</span>
+                    </a>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Orders Hero Section -->
+    <section class="orders-hero">
+        <div class="container">
+            <div class="orders-hero__content">
+                <h1 class="orders-hero__title">অর্ডার ট্র্যাকিং</h1>
+                <p class="orders-hero__subtitle">
+                    আপনার অর্ডারের বর্তমান স্ট্যাটাস জানুন
+                </p>
+                
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="index.html" class="breadcrumb__link">হোম</a>
+                    <span class="breadcrumb__separator">/</span>
+                    <span class="breadcrumb__current">অর্ডার ট্র্যাকিং</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Tracking Section -->
+    <section class="order-tracking">
+        <div class="container">
+            <div class="order-tracking__content">
+                <!-- Tracking Form -->
+                <div class="tracking-form-section">
+                    <div class="tracking-form-card">
+                        <h2 class="tracking-form-title">অর্ডার ট্র্যাক করুন</h2>
+                        <p class="tracking-form-subtitle">
+                            আপনার অর্ডার আইডি দিয়ে ট্র্যাক করুন
+                        </p>
+                        
+                        <form class="tracking-form" id="tracking-form">
+                            <div class="form-group">
+                                <label for="order-id" class="form-label">
+                                    অর্ডার আইডি *
+                                </label>
+                                <input type="text" id="order-id" name="order_id" 
+                                       class="form-input" required 
+                                       placeholder="TS-241028-123456">
+                                <div class="form-error" id="order-id-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="customer-phone" class="form-label">
+                                    মোবাইল নম্বর *
+                                </label>
+                                <input type="tel" id="customer-phone" name="customer_phone" 
+                                       class="form-input" required 
+                                       placeholder="01XXXXXXXXX">
+                                <div class="form-error" id="phone-error"></div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn--primary btn--large" id="track-order-btn">
+                                    <i class="fas fa-search"></i>
+                                    <span>অর্ডার ট্র্যাক করুন</span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="tracking-help">
+                            <h4>অর্ডার আইডি খুঁজে পাচ্ছেন না?</h4>
+                            <p>
+                                অর্ডার কনফার্মেশন ইমেইল/এসএমএস এ আপনার অর্ডার আইডি পাওয়া যাবে। 
+                                যদি না পান, তাহলে আমাদের <a href="contact.html">সাপোর্ট টিম</a> 
+                                এর সাথে যোগাযোগ করুন।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Status Display -->
+                <div class="order-status-section" id="order-status-section" style="display: none;">
+                    <div class="order-status-card">
+                        <!-- Order Header -->
+                        <div class="order-header">
+                            <div class="order-basic-info">
+                                <h2 class="order-id" id="display-order-id">TS-241028-123456</h2>
+                                <div class="order-date" id="display-order-date">অক্টোবর ২৮, ২০২৪</div>
+                            </div>
+                            <div class="order-status-badge">
+                                <span class="status-badge" id="status-badge">কনফার্মড</span>
+                            </div>
+                        </div>
+
+                        <!-- Order Timeline -->
+                        <div class="order-timeline">
+                            <div class="timeline-step completed">
+                                <div class="step-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4 class="step-title">অর্ডার প্লেসড</h4>
+                                    <p class="step-description">আপনার অর্ডার সফলভাবে গ্রহণ করা হয়েছে</p>
+                                    <div class="step-time" id="step-order-time">অক্টোবর ২৮, ২০২৪ - ১০:৩০ AM</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-step completed">
+                                <div class="step-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4 class="step-title">কনফার্মড</h4>
+                                    <p class="step-description">আপনার অর্ডারটি কনফার্ম করা হয়েছে</p>
+                                    <div class="step-time" id="step-confirm-time">অক্টোবর ২৮, ২০২৪ - ১১:১৫ AM</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-step active">
+                                <div class="step-icon">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4 class="step-title">প্রস্তুত হচ্ছে</h4>
+                                    <p class="step-description">আপনার অর্ডারটি প্রস্তুত করা হচ্ছে</p>
+                                    <div class="step-time" id="step-processing-time">অক্টোবর ২৯, ২০২৪ - ০৯:০০ AM</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-step pending">
+                                <div class="step-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4 class="step-title">শিপড</h4>
+                                    <p class="step-description">আপনার অর্ডার ডেলিভারির জন্য পাঠানো হবে</p>
+                                    <div class="step-time" id="step-shipped-time">শীঘ্রই</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-step pending">
+                                <div class="step-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4 class="step-title">ডেলিভার্ড</h4>
+                                    <p class="step-description">আপনার অর্ডার আপনার ঠিকানায় পৌঁছে দেওয়া হবে</p>
+                                    <div class="step-time" id="step-delivered-time">শীঘ্রই</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Details -->
+                        <div class="order-details-grid">
+                            <!-- Shipping Information -->
+                            <div class="details-card">
+                                <h3 class="details-title">
+                                    <i class="fas fa-truck"></i>
+                                    ডেলিভারি তথ্য
+                                </h3>
+                                <div class="details-content">
+                                    <div class="info-item">
+                                        <strong>গ্রাহকের নাম:</strong>
+                                        <span id="tracking-customer-name">লোড হচ্ছে...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>মোবাইল নম্বর:</strong>
+                                        <span id="tracking-customer-phone">লোড হচ্ছে...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>ঠিকানা:</strong>
+                                        <span id="tracking-delivery-address">লোড হচ্ছে...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>শহর/জেলা:</strong>
+                                        <span id="tracking-delivery-city">লোড হচ্ছে...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>আনুমানিক ডেলিভারি:</strong>
+                                        <span id="tracking-estimated-delivery">লোড হচ্ছে...</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Order Summary -->
+                            <div class="details-card">
+                                <h3 class="details-title">
+                                    <i class="fas fa-receipt"></i>
+                                    অর্ডার সামারি
+                                </h3>
+                                <div class="order-items-summary" id="tracking-order-items">
+                                    <!-- Order items will be loaded dynamically -->
+                                    <div class="loading-spinner">
+                                        <div class="spinner"></div>
+                                        <p>অর্ডার আইটেম লোড হচ্ছে...</p>
+                                    </div>
+                                </div>
+                                <div class="order-totals">
+                                    <div class="total-row">
+                                        <span>সাবটোটাল:</span>
+                                        <span id="tracking-subtotal">৳ ০</span>
+                                    </div>
+                                    <div class="total-row">
+                                        <span>ডেলিভারি চার্জ:</span>
+                                        <span id="tracking-delivery-charge">৳ ০</span>
+                                    </div>
+                                    <div class="total-row grand-total">
+                                        <span>মোট Amount:</span>
+                                        <span id="tracking-total">৳ ০</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <strong>পেমেন্ট মাধ্যম:</strong>
+                                        <span id="tracking-payment-method">ক্যাশ অন ডেলিভারি</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Support Actions -->
+                        <div class="support-actions">
+                            <div class="action-card">
+                                <div class="action-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <div class="action-content">
+                                    <h4>সাহায্য প্রয়োজন?</h4>
+                                    <p>আপনার অর্ডার সম্পর্কিত যেকোনো প্রশ্নের জন্য আমাদের সাপোর্ট টিম আপনার সাহায্য করতে প্রস্তুত</p>
+                                    <div class="action-buttons">
+                                        <a href="tel:+8801XXXXXXXXX" class="btn btn--outline btn--small">
+                                            <i class="fas fa-phone"></i>
+                                            <span>কল করুন</span>
+                                        </a>
+                                        <a href="https://wa.me/8801XXXXXXXXX" class="btn btn--outline btn--small" target="_blank">
+                                            <i class="fab fa-whatsapp"></i>
+                                            <span>WhatsApp</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Order Found -->
+                <div class="no-order-found" id="no-order-found" style="display: none;">
+                    <div class="no-order-content">
+                        <div class="no-order-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="no-order-title">অর্ডার পাওয়া যায়নি</h3>
+                        <p class="no-order-message">
+                            প্রদত্ত অর্ডার আইডি এবং মোবাইল নম্বর দিয়ে কোনো অর্ডার পাওয়া যায়নি। 
+                            দয়া করে আবার চেষ্টা করুন বা আমাদের সাপোর্ট টিমের সাথে যোগাযোগ করুন।
+                        </p>
+                        <div class="no-order-actions">
+                            <button class="btn btn--primary" id="try-again-btn">
+                                <i class="fas fa-redo"></i>
+                                <span>আবার চেষ্টা করুন</span>
+                            </button>
+                            <a href="contact.html" class="btn btn--outline">
+                                <i class="fas fa-headset"></i>
+                                <span>সাপোর্টে যোগাযোগ করুন</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Orders Section (for logged in users) -->
+    <section class="recent-orders" id="recent-orders-section" style="display: none;">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">আপনার সাম্প্রতিক অর্ডারসমূহ</h2>
+                <p class="section__subtitle">আপনার শেষ কয়েকটি অর্ডার</p>
+            </div>
+            <div class="orders-list" id="recent-orders-list">
+                <!-- Recent orders will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <div class="footer__logo">
+                        <img src="assets/images/logo.png" alt="TinyStepsBD" class="footer__logo-img">
+                        <h3 class="footer__logo-text">TinyStepsBD</h3>
+                    </div>
+                    <p class="footer__description">
+                        ৭ বছরের অভিজ্ঞতায় বাংলাদেশের শীর্ষস্থানীয় শিশুদের জুতা সরবরাহকারী।
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">দ্রুত লিঙ্ক</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">হোম</a></li>
+                        <li><a href="shop.html">শপ</a></li>
+                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                        <li><a href="contact.html">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">গ্রাহক সেবা</h4>
+                    <ul class="footer__links">
+                        <li><a href="orders.html">অর্ডার ট্র্যাক করুন</a></li>
+                        <li><a href="#">রিটার্ন পলিসি</a></li>
+                        <li><a href="#">ডেলিভারি তথ্য</a></li>
+                        <li><a href="#">সাহায্য কেন্দ্র</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">যোগাযোগ</h4>
+                    <div class="footer__contact">
+                        <div class="footer__contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+880 1XXX-XXXXXX</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@tinystepsbd.com</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>ঢাকা, বাংলাদেশ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <div class="footer__copyright">
+                    <p>&copy; 2024 TinyStepsBD. সকল স্বত্ব সংরক্ষিত।</p>
+                </div>
+                <div class="footer__payment">
+                    <span>পেমেন্ট মাধ্যম:</span>
+                    <span class="payment-method">ক্যাশ অন ডেলিভারি</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/orders.js"></script>
+</body>
+</html>

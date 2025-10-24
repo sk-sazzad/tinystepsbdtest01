@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শপিং কার্ট - TinyStepsBD</title>
+    <meta name="description" content="TinyStepsBD - আপনার শপিং কার্ট">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="শপিং কার্ট, শিশুদের জুতা, অর্ডার">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" class="nav__logo-link">
+                    <img src="assets/images/logo.png" alt="TinyStepsBD Logo" class="nav__logo-img">
+                    <span class="nav__logo-text">TinyStepsBD</span>
+                </a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">হোম</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="shop.html" class="nav__link">শপ</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="about.html" class="nav__link">আমাদের সম্পর্কে</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="nav__link">যোগাযোগ</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__actions">
+                <div class="nav__search">
+                    <i class="fas fa-search nav__search-icon"></i>
+                </div>
+                <div class="nav__cart">
+                    <a href="cart.html" class="nav__cart-link active">
+                        <i class="fas fa-shopping-cart nav__cart-icon"></i>
+                        <span class="nav__cart-count">0</span>
+                    </a>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Cart Header Section -->
+    <section class="cart-header">
+        <div class="container">
+            <div class="cart-header__content">
+                <h1 class="cart-header__title">আপনার শপিং কার্ট</h1>
+                
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="index.html" class="breadcrumb__link">হোম</a>
+                    <span class="breadcrumb__separator">/</span>
+                    <span class="breadcrumb__current">শপিং কার্ট</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Main Section -->
+    <section class="cart-main">
+        <div class="container">
+            <div class="cart-main__content">
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    <div class="cart-items__header">
+                        <div class="cart-header__item product-info">পণ্য</div>
+                        <div class="cart-header__item price">দাম</div>
+                        <div class="cart-header__item quantity">পরিমাণ</div>
+                        <div class="cart-header__item total">মোট</div>
+                        <div class="cart-header__item actions">অ্যাকশন</div>
+                    </div>
+
+                    <div class="cart-items__list" id="cart-items-list">
+                        <!-- Empty Cart State -->
+                        <div class="empty-cart" id="empty-cart">
+                            <div class="empty-cart__icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3 class="empty-cart__title">আপনার কার্ট খালি</h3>
+                            <p class="empty-cart__message">আপনার কার্টে এখনও কোনো পণ্য নেই। শপিং চালিয়ে যান এবং কিছু পণ্য যোগ করুন।</p>
+                            <a href="shop.html" class="btn btn--primary">
+                                <span>শপিং চালিয়ে যান</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <!-- Cart Items will be loaded dynamically here -->
+                    </div>
+
+                    <!-- Cart Actions -->
+                    <div class="cart-actions">
+                        <div class="continue-shopping">
+                            <a href="shop.html" class="btn btn--outline">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>শপিং চালিয়ে যান</span>
+                            </a>
+                        </div>
+                        <div class="cart-update">
+                            <button class="btn btn--outline" id="update-cart">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>কার্ট আপডেট করুন</span>
+                            </button>
+                            <button class="btn btn--outline btn--danger" id="clear-cart">
+                                <i class="fas fa-trash"></i>
+                                <span>কার্ট খালি করুন</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <aside class="cart-summary">
+                    <div class="summary-card">
+                        <h3 class="summary-title">অর্ডার সামারি</h3>
+                        
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span class="summary-label">সাবটোটাল:</span>
+                                <span class="summary-value" id="cart-subtotal">৳ ০</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">ডেলিভারি চার্জ:</span>
+                                <span class="summary-value" id="delivery-charge">৳ ০</span>
+                            </div>
+                            <div class="summary-row estimated-charge">
+                                <small id="delivery-note">(অবস্থান ভিত্তিক)</small>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row total-row">
+                                <span class="summary-label">মোট:</span>
+                                <span class="summary-value total-amount" id="cart-total">৳ ০</span>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Location Input -->
+                        <div class="delivery-location">
+                            <label for="delivery-area" class="location-label">আপনার এলাকা:</label>
+                            <select id="delivery-area" class="location-select">
+                                <option value="">এলাকা নির্বাচন করুন</option>
+                                <option value="inside-dhaka">ঢাকা শহরের ভিতরে</option>
+                                <option value="outside-dhaka">ঢাকার বাইরে</option>
+                            </select>
+                            <small class="location-note">ডেলিভারি চার্জ নির্ধারণের জন্য</small>
+                        </div>
+
+                        <!-- Checkout Button -->
+                        <div class="checkout-action">
+                            <a href="checkout.html" class="btn btn--primary btn--large btn--block" id="proceed-checkout">
+                                <span>চেকআউট করুন</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <!-- Security Badges -->
+                        <div class="security-badges">
+                            <div class="security-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>সুরক্ষিত চেকআউট</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="fas fa-lock"></i>
+                                <span>ডেটা প্রাইভেসি</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Features -->
+                    <div class="trust-features">
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="trust-content">
+                                <h4>দ্রুত ডেলিভারি</h4>
+                                <p>১-৩ কার্যদিবসে ডেলিভারি</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="fas fa-undo"></i>
+                            </div>
+                            <div class="trust-content">
+                                <h4>সহজ রিটার্ন</h4>
+                                <p>৭ দিন রিটার্ন পলিসি</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="trust-content">
+                                <h4>২৪/৭ সাপোর্ট</h4>
+                                <p>সকল প্রশ্নের উত্তর</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed Products -->
+    <section class="recently-viewed">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">সম্প্রতি দেখা পণ্য</h2>
+                <p class="section__subtitle">আপনার দেখা কিছু পণ্য</p>
+            </div>
+            <div class="products__grid" id="recently-viewed">
+                <!-- Recently viewed products will be loaded dynamically -->
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>পণ্য লোড হচ্ছে...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Remove Item Modal -->
+    <div class="modal modal--confirm" id="remove-item-modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 class="modal__title">পণ্য সরান</h3>
+            </div>
+            <div class="modal__body">
+                <p id="remove-item-message">আপনি কি নিশ্চিত যে আপনি এই পণ্যটি কার্ট থেকে সরাতে চান?</p>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--outline" id="cancel-remove">বাতিল করুন</button>
+                <button class="btn btn--danger" id="confirm-remove">সরান</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clear Cart Modal -->
+    <div class="modal modal--confirm" id="clear-cart-modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 class="modal__title">কার্ট খালি করুন</h3>
+            </div>
+            <div class="modal__body">
+                <p>আপনি কি নিশ্চিত যে আপনি আপনার সম্পূর্ণ কার্ট খালি করতে চান? এই কাজটি পূর্বাবস্থায় ফেরানো যাবে না।</p>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--outline" id="cancel-clear">বাতিল করুন</button>
+                <button class="btn btn--danger" id="confirm-clear">খালি করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <div class="footer__logo">
+                        <img src="assets/images/logo.png" alt="TinyStepsBD" class="footer__logo-img">
+                        <h3 class="footer__logo-text">TinyStepsBD</h3>
+                    </div>
+                    <p class="footer__description">
+                        ৭ বছরের অভিজ্ঞতায় বাংলাদেশের শীর্ষস্থানীয় শিশুদের জুতা সরবরাহকারী।
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">দ্রুত লিঙ্ক</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">হোম</a></li>
+                        <li><a href="shop.html">শপ</a></li>
+                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                        <li><a href="contact.html">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">গ্রাহক সেবা</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">অর্ডার ট্র্যাক করুন</a></li>
+                        <li><a href="#">রিটার্ন পলিসি</a></li>
+                        <li><a href="#">ডেলিভারি তথ্য</a></li>
+                        <li><a href="#">সাহায্য কেন্দ্র</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">যোগাযোগ</h4>
+                    <div class="footer__contact">
+                        <div class="footer__contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+880 1XXX-XXXXXX</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@tinystepsbd.com</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>ঢাকা, বাংলাদেশ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <div class="footer__copyright">
+                    <p>&copy; 2024 TinyStepsBD. সকল স্বত্ব সংরক্ষিত।</p>
+                </div>
+                <div class="footer__payment">
+                    <span>পেমেন্ট মাধ্যম:</span>
+                    <span class="payment-method">ক্যাশ অন ডেলিভারি</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/cart-page.js"></script>
+</body>
+</html>
